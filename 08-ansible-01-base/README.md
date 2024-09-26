@@ -13,6 +13,9 @@
 ![mnt-homeworks-01-task1-1](https://github.com/user-attachments/assets/c58e69f6-2344-4bb0-aad4-b0543c19e3c1)
    
 2. Найдите файл с переменными (group_vars), в котором задаётся найденное в первом пункте значение, и поменяйте его на `all default fact`.
+
+![mnt-homeworks-01-task1-2](https://github.com/user-attachments/assets/cd776f32-37dc-43d8-a259-e59dc510a298)
+
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
 

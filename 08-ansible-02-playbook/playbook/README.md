@@ -11,8 +11,8 @@ A community repository for Netology DevOps Course Projectt.
 
 ## Installation
 This ansible playbook supports the following,
-- Install ClickHouse and Vector
-- Configure Vector
+- Install ClickHouse and create logs database.
+- Install and Configure Vector.
 
 ### Prerequisite
 - **Ansible 2.9+**
@@ -21,9 +21,13 @@ This ansible playbook supports the following,
 Refer the file `templates/config/vector.toml.j2` to change the default values for Vector.
 
 ### Tags
-- no tags
+- clickhouse
+- vector
 
 ### Install
     # Deploy with ansible playbook - run the playbook as root
     ansible-playbook site.yml -i inventory/prod.yml --ask-pass
-
+    # Deploy ClickHouse with ansible playbook - run the playbook as root
+    ansible-playbook site.yml -i inventory/prod.yml --ask-pass --tags clickhouse
+    # Deploy Vector with ansible playbook - run the playbook as root
+    ansible-playbook site.yml -i inventory/prod.yml --ask-pass --tags vector

@@ -3,7 +3,7 @@ clickhouse:
   hosts:
 #    clickhouse-01:
 #      ansible_host: <IP_here>
-    centos8:
+    rockylinux9:
       ansible_connection: docker
 vector:
   hosts:

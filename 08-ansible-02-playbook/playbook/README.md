@@ -1,8 +1,9 @@
 - [Netology DevOps Course Project Ansible-Playbook](#netology-devops-course-project-ansible-playbook)
-- [Installation)
+- [Installation](#installation)
   - [Prerequisite](#prerequisite)
   - [Configure](#configure)
   - [Install](#install)
+  - [Tags](#tags)
 
 ## Netology DevOps Course Project Ansible-Playbook
 
@@ -19,11 +20,10 @@ This ansible playbook supports the following,
 ### Configure
 Refer the file `templates/config/vector.toml.j2` to change the default values for Vector.
 
+### Tags
+- no tags
+
 ### Install
-
     # Deploy with ansible playbook - run the playbook as root
-    ansible-playbook -i inventories/opensearch/hosts opensearch.yml --extra-vars "admin_password=myStrongPassword@123! kibanaserver_password=Test@6789 logstash_password=Test@456"
+    ansible-playbook site.yml -i inventory/prod.yml --ask-pass
 
-You should set the reserved users(`admin`, `kibanaserver`, and `logstash`) password using `admin_password`, `kibanaserver_password`, and `logstash_password` variables.
-
-**Note**: Starting OpenSearch 2.12, a strong password is required for `admin` user, i.e. `myStrongPassword123!`. The cluster will fail to start with a weak password (i.e. admin) or no password.

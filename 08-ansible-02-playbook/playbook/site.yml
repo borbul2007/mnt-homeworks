@@ -23,7 +23,7 @@
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
             mode: "0755"
     - name: Install clickhouse packages
-      become: true
+#      become: true
       ansible.builtin.yum:
         name:
           - clickhouse-common-static-{{ clickhouse_version }}.rpm

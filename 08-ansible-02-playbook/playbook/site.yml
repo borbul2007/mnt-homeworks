@@ -3,7 +3,7 @@
   hosts: clickhouse
   handlers:
     - name: Start clickhouse service
-      become: true
+#      become: true
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
@@ -45,8 +45,8 @@
     - name: Start vector service
       become: true
       ansible.builtin.service:
-      name: vector
-        state: restarted
+        name: vector
+          state: restarted
   tasks:
     - name: Get vector distrib
       block:

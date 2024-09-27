@@ -8,20 +8,42 @@
 #
 # ------------------------------------------------------------------------------
 # Website: https://vector.dev
-# Docs: https://vector.dev/docs/
+# Docs: https://vector.dev/docs
+# Chat: https://chat.vector.dev
 # ------------------------------------------------------------------------------
 
-# Note: A full config spec is located at ./vector.spec.toml and examples
-#       in the ./examples folder.
+# Change this to use a non-default directory for Vector data storage:
+# data_dir: "/var/lib/vector"
 
-data_dir = "{{ vector_data_dir }}"
+# Random Syslog-formatted logs
+sources:
+  dummy_logs:
+    type: "demo_logs"
+    format: "syslog"
+    interval: 1
 
-# Input data. Change me to a valid input source.
-[sources.in]
-  type = "stdin"
+# Parse Syslog logs
+# See the Vector Remap Language reference for more info: https://vrl.dev
+transforms:
+  parse_logs:
+    type: "remap"
+    inputs: ["dummy_logs"]
+    source: |
+      . = parse_syslog!(string!(.message))
 
-# Output data
-[sinks.out]
-  inputs   = ["in"]
-  type     = "console"
-  encoding.codec = "text"
+# Print parsed logs to stdout
+sinks:
+  print:
+    type: "console"
+    inputs: ["parse_logs"]
+    encoding:
+      codec: "json"
+      json:
+        pretty: true
+
+# Vector's GraphQL API (disabled by default)
+# Uncomment to try it out with the `vector top` command or
+# in your browser at http://localhost:8686
+# api:
+#   enabled: true
+#   address: "127.0.0.1:8686"

@@ -56,18 +56,25 @@
         state: restarted
 
   tasks:
-    - name: Get vector distrib
-      ansible.builtin.get_url:
-        url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
-        dest: "./vector-{{ vector_version }}.x86_64.rpm"
-        mode: "0755"
-      with_items: "{{ vector_version }}"
+#    - name: Get vector distrib
+#      ansible.builtin.get_url:
+#        url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
+#        dest: "./vector-{{ vector_version }}.x86_64.rpm"
+#        mode: "0755"
+#      with_items: "{{ vector_version }}"
 
-    - name: Install vector packages
-      ansible.builtin.yum:
-        name:
-          - vector-{{ vector_version }}.x86_64.rpm
-        disable_gpg_check: true
+#    - name: Install vector packages
+#      ansible.builtin.yum:
+#        name:
+#          - vector-{{ vector_version }}.x86_64.rpm
+#        disable_gpg_check: true
+#      notify: Start vector service
+
+    - name: Get vector distrib
+      ansible.builtin.unarchive:
+        src: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-x86_64-unknown-linux-musl.tar.gz
+        dest: /usr/local/bin
+      remote_src: yes
       notify: Start vector service
 
     - name: Replace vector configuration file

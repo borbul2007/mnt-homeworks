@@ -46,7 +46,7 @@
       become: true
       ansible.builtin.service:
         name: vector
-          state: restarted
+        state: restarted
   tasks:
     - name: Get vector distrib
       block:

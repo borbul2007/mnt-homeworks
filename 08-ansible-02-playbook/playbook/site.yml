@@ -49,19 +49,20 @@
         state: restarted
   tasks:
     - name: Get vector distrib
-      block:
-        - name: Get vector distrib
-          ansible.builtin.get_url:
-            url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
-            dest: "./vector-{{ vector_version }}.x86_64.rpm"
-            mode: "0755"
-          with_items: "{{ vector_version }}"
+      ansible.builtin.get_url:
+        url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
+        dest: "./vector-{{ vector_version }}.x86_64.rpm"
+        mode: "0755"
+      with_items: "{{ vector_version }}"
     - name: Install vector packages
-#      become: true
       ansible.builtin.yum:
         name:
           - vector-{{ vector_version }}.x86_64.rpm
         disable_gpg_check: true
       notify: Start vector service
+    - name: Replace vector configuration file
+      template:
+        src=templates/config/vector.toml.j2
+        dest=/etc/vector/vector.toml
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers

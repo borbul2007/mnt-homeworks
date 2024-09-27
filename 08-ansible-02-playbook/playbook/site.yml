@@ -72,7 +72,7 @@
 
     - name: Get vector distrib
       ansible.builtin.unarchive:
-        src: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-x86_64-unknown-linux-musl.tar.gz
+        src: https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_minor_version }}-x86_64-unknown-linux-musl.tar.gz
         dest: /usr/local/bin
         remote_src: yes
       with_items: "{{ vector_version }}"

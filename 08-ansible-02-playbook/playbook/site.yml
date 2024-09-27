@@ -1,13 +1,13 @@
 ---
 - name: Install Clickhouse
   hosts: clickhouse
+  tags: vector
   handlers:
     - name: Start clickhouse service
 #      become: true
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
-      tags: vector
 
   tasks:
     - name: Get clickhouse distrib
@@ -47,13 +47,13 @@
 
 - name: Install Vector
   hosts: vector
+  tags: vector
   handlers:
     - name: Restart vector service
       become: true
       ansible.builtin.service:
         name: vector
         state: restarted
-      tags: vector
 
   tasks:
     - name: Get vector distrib

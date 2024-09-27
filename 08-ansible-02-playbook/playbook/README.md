@@ -7,7 +7,7 @@
 
 ## Netology DevOps Course Project Ansible-Playbook
 
-A community repository for Netology DevOps Course Projectt.
+A community repository for Netology DevOps Course Project.
 
 ## Installation
 This ansible playbook supports the following,

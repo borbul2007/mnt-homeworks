@@ -66,7 +66,7 @@
     - name: Install vector packages
       ansible.builtin.yum:
         name:
-          - vector-{{ vector_version }}.x86_64.rpm
+          - vector-{{ vector_rpm_version }}.x86_64.rpm
         disable_gpg_check: true
       notify: Start vector service
 

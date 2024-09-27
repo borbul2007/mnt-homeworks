@@ -34,6 +34,8 @@
 ![mnt-homeworks-02-task7-3](https://github.com/user-attachments/assets/e04b9fca-c29e-43d0-ae75-ecff4c05e9d2)
 
 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги. Пример качественной документации ansible playbook по [ссылке](https://github.com/opensearch-project/ansible-playbook). Так же приложите скриншоты выполнения заданий №5-8
+[Ansible-playbook-doc](https://github.com/borbul2007/mnt-homeworks/tree/08-ansible-02-playbook/08-ansible-02-playbook/playbook)
+
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
 ---

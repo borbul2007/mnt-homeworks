@@ -7,6 +7,7 @@
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
+      tags: vector
 
   tasks:
     - name: Get clickhouse distrib
@@ -23,6 +24,7 @@
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
             mode: "0755"
+
     - name: Install clickhouse packages
 #      become: true
       ansible.builtin.yum:
@@ -51,6 +53,7 @@
       ansible.builtin.service:
         name: vector
         state: restarted
+      tags: vector
 
   tasks:
     - name: Get vector distrib

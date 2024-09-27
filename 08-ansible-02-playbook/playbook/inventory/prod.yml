@@ -1,13 +1,13 @@
 ---
 clickhouse:
   hosts:
-#    clickhouse-01:
-#      ansible_host: <IP_here>
-    rockylinux9:
-      ansible_connection: docker
+    clickhouse-01:
+      ansible_host: localhost
+#    rockylinux9:
+#      ansible_connection: docker
 vector:
   hosts:
-#    vector-01:
-#      ansible_host: docker
-    centos8:
-      ansible_connection: docker
+    vector-01:
+      ansible_host: localhost
+#    centos8:
+#      ansible_connection: docker

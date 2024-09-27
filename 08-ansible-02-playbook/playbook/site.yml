@@ -1,7 +1,7 @@
 ---
 - name: Install Clickhouse
   hosts: clickhouse
-  tags: vector
+  tags: clickhouse
   handlers:
     - name: Start clickhouse service
 #      become: true

@@ -14,6 +14,11 @@
 3. При создании tasks рекомендую использовать модули: `get_url`, `template`, `unarchive`, `file`.
 4. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
+
+![mnt-homeworks-02-task5-1](https://github.com/user-attachments/assets/12256908-9944-4928-8550-a60887a37d59)
+
+![mnt-homeworks-02-task5](https://github.com/user-attachments/assets/1b553382-4184-472a-ab9b-fe59096ec37d)
+  
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 
 ![mnt-homeworks-02-task6](https://github.com/user-attachments/assets/a9125140-21a2-4dfb-a545-bf7a90d5b237)

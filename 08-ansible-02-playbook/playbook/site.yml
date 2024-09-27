@@ -49,7 +49,7 @@
           ansible.builtin.get_url:
             url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_version }}.x86_64.rpm"
             dest: "./vector-{{ vector_version }}.x86_64.rpm"
-          with_items: "{{ clickhouse_packages }}"
+          with_items: "vector-{{ vector_version }}.x86_64.rpm"
       rescue:
         - name: Get vector distrib
           ansible.builtin.get_url:

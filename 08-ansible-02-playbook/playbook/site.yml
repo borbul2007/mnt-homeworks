@@ -42,11 +42,13 @@
 - name: Install Vector
   hosts: vector
   handlers:
-    - name: Start vector service
+    - name: Restart vector service
       become: true
       ansible.builtin.service:
         name: vector
         state: restarted
+
+
   tasks:
     - name: Get vector distrib
       ansible.builtin.get_url:
@@ -54,15 +56,19 @@
         dest: "./vector-{{ vector_version }}.x86_64.rpm"
         mode: "0755"
       with_items: "{{ vector_version }}"
+
     - name: Install vector packages
       ansible.builtin.yum:
         name:
           - vector-{{ vector_version }}.x86_64.rpm
         disable_gpg_check: true
       notify: Start vector service
+
     - name: Replace vector configuration file
       template:
         src=templates/config/vector.toml.j2
         dest=/etc/vector/vector.toml
+      notify: Restart vector service
+
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers

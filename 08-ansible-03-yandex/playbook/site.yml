@@ -90,13 +90,11 @@
       ansible.builtin.git:
         repo: "{{ lighthouse_vcs }}"
         version: master
-        dest: "/usr/share/hginx/html"
-        force: true
+        dest: "/opt/lighthouse"
       notify: Restart nginx service
-
-#    - name: Create lighthouse configuration file
-#      template:
-#        src=templates/config/lighthouse.conf.j2
-#        dest=/etc/ngix/conf.d/default.conf
-#        mode: "0644"   
-#      notify: Restart nginx service
+    - name: Create lighthouse configuration file
+      template:
+        src=templates/config/lighthouse.conf.j2
+        dest=/etc/ngix/conf.d/default.conf
+        mode: "0644"
+      notify: Restart nginx service

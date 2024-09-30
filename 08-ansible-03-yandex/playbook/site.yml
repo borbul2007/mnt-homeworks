@@ -85,13 +85,13 @@
         - git
         - nginx
         state: present
-#      notify: Restart nginx service
   tasks:
     - name: Copy lighthouse from git
       ansible.builtin.git:
         repo: "{{ lighthouse_vcs }}"
         version: master
         dest: "/usr/share/hginx/html"
+        force: true
       notify: Restart nginx service
 
 #    - name: Create lighthouse configuration file
@@ -99,12 +99,4 @@
 #        src=templates/config/lighthouse.conf.j2
 #        dest=/etc/ngix/conf.d/default.conf
 #        mode: "0644"   
-#      notify: Restart nginx service
-
-#  tasks:
-#    - name: Install nginx packages
-#      become: true
-#      ansible.builtin.yum:
-#        name: nginx
-#        state: present
 #      notify: Restart nginx service

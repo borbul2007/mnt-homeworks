@@ -8,7 +8,6 @@
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
-
   tasks:
     - name: Get clickhouse distrib
       block:
@@ -24,7 +23,6 @@
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
             mode: "0755"
-
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
@@ -34,10 +32,8 @@
           - clickhouse-server-{{ clickhouse_version }}.rpm
         disable_gpg_check: true
       notify: Start clickhouse service
-
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
-
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
@@ -54,7 +50,6 @@
       ansible.builtin.service:
         name: vector
         state: restarted
-
   tasks:
     - name: Get vector distrib
       ansible.builtin.get_url:
@@ -62,23 +57,19 @@
         dest: "./vector-{{ vector_rpm_version }}.x86_64.rpm"
         mode: "0755"
       with_items: "{{ vector_version }}"
-
     - name: Install vector packages
       ansible.builtin.yum:
         name:
           - vector-{{ vector_rpm_version }}.x86_64.rpm
         disable_gpg_check: true
       notify: Restart vector service
-
     - name: Replace vector configuration file
       template:
         src=templates/config/vector.toml.j2
         dest=/etc/vector/vector.yaml
       notify: Restart vector service
-
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
-
 
 - name: Install Nginx
   hosts: lighthouse
@@ -92,6 +83,7 @@
 
   tasks:
     - name: Install nginx packages
+      become: true
       ansible.builtin.yum:
         name: nginx
         state: present
@@ -99,14 +91,20 @@
 
 
 - name: Install Lighthouse
-  hosts: vector
-  tags: vector
+  hosts: lighthouse
+  tags: lighthouse
   handlers:
-    - name: Restart vector service
+    - name: Restart nginx service
       become: true
       ansible.builtin.service:
-        name: vector
-  
+        name: nginx
+        state: restarted
+  pre-tasks:
+    - Install dependencies
+      become: true
+      ansible.builtin.yum:
+        name: git
+        state: present
   tasks:
     - name: Get lighthouse distrib
       ansible.builtin.get_url:
@@ -114,20 +112,17 @@
         dest: "./vector-{{ vector_rpm_version }}.x86_64.rpm"
         mode: "0755"
       with_items: "{{ lighthouse_version }}"
-
     - name: Install lighthouse packages
       ansible.builtin.git:
         repo:
         version: {{ lighthouse_version }}
         dest: true
       notify: Restart nginx service
-
     - name: Create lighthouse configuration file
       template:
         src=templates/config/lighthouse.conf.j2
         dest=/etc/ngix/conf.d/default.conf
         mode: "0644"   
       notify: Restart nginx service
-
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers

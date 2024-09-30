@@ -94,7 +94,7 @@
       notify: Restart nginx service
     - name: Create lighthouse configuration file
       template:
-        src=templates/config/lighthouse.conf.j2
-        dest=/etc/ngix/conf.d/default.conf
+        src: templates/config/lighthouse.conf.j2
+        dest: /etc/ngix/conf.d/default.conf
         mode: "0644"
       notify: Restart nginx service

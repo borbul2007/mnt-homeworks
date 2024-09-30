@@ -108,6 +108,8 @@
         version: master
         dest: "/usr/share/hginx/html"
       notify: Restart nginx service
+  dependencies:
+- { role: "Install Nginx" }
 
 #    - name: Create lighthouse configuration file
 #      template:

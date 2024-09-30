@@ -19,8 +19,8 @@ This ansible playbook supports the following,
 - **Ansible 2.9+**
 
 ### Configure
-Refer the file `templates/config/vector.toml.j2` to change the default values for Vector.
-Refer the file `templates/config/lighthouse.conf.j2` site with Lighthouse static for Nginx web server on 8080 port.
+Refer the file `templates/config/vector.toml.j2` to change the default values for Vector.\
+Refer the file `templates/config/lighthouse.conf.j2` Lighthouse static web site for Nginx web server on TCP/8080 port.
 
 ### Tags
 - clickhouse

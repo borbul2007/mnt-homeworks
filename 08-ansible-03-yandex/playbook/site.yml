@@ -84,8 +84,8 @@
   pre_tasks:
     - name: Install dependencies
       become: true
-      become_user: borbul
-      become_method: su
+      become_user: root
+#      become_method: su
       ansible.builtin.yum:
         name: 
         - git

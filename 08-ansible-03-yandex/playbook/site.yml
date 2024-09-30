@@ -68,20 +68,6 @@
         dest=/etc/vector/vector.yaml
       notify: Restart vector service
 
-#- name: Install Nginx
-#  hosts: lighthouse
-#  tags: 
-#    - lighthouse
-#    - nginx
-#  handlers:
-#    - name: Restart nginx service
-#      become: true
-#      ansible.builtin.service:
-#        name: nginx
-#        state: restarted
-
-#  tasks:
-
 - name: Install Lighthouse
   hosts: lighthouse
   tags: lighthouse
@@ -100,15 +86,6 @@
         - nginx
         state: present
 #      notify: Restart nginx service
-
-
-  tasks:
-    - name: Install nginx packages
-      become: true
-      ansible.builtin.yum:
-        name: nginx
-        state: present
-      notify: Restart nginx service
   tasks:
     - name: Copy lighthouse from git
       ansible.builtin.git:
@@ -122,4 +99,12 @@
 #        src=templates/config/lighthouse.conf.j2
 #        dest=/etc/ngix/conf.d/default.conf
 #        mode: "0644"   
+#      notify: Restart nginx service
+
+#  tasks:
+#    - name: Install nginx packages
+#      become: true
+#      ansible.builtin.yum:
+#        name: nginx
+#        state: present
 #      notify: Restart nginx service

@@ -96,7 +96,8 @@
         name: nginx
         state: restarted
   pre-tasks:
-    - Install dependencies
+    - name: Install dependencies
+      become: true
       ansible.builtin.yum:
         name: git
         state: present

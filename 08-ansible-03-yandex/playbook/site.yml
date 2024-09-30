@@ -5,6 +5,7 @@
   handlers:
     - name: Start clickhouse service
       become: true
+      become_user: borbul
       ansible.builtin.service:
         name: clickhouse-server
         state: restarted
@@ -25,6 +26,7 @@
             mode: "0755"
     - name: Install clickhouse packages
       become: true
+      become_user: borbul
       ansible.builtin.yum:
         name:
           - clickhouse-common-static-{{ clickhouse_version }}.rpm
@@ -46,6 +48,7 @@
   handlers:
     - name: Restart vector service
       become: true
+      become_user: borbul
       ansible.builtin.service:
         name: vector
         state: restarted
@@ -74,12 +77,14 @@
   handlers:
     - name: Restart nginx service
       become: true
+      become_user: borbul
       ansible.builtin.service:
         name: nginx
         state: restarted
   pre_tasks:
     - name: Install dependencies
       become: true
+      become_user: borbul
       ansible.builtin.yum:
         name: 
         - git

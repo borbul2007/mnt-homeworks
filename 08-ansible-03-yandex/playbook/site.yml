@@ -77,7 +77,6 @@
   handlers:
     - name: Restart nginx service
       become: true
-#      become_user: borbul
       ansible.builtin.service:
         name: nginx
         state: restarted
@@ -85,7 +84,6 @@
     - name: Install dependencies
       become: true
       become_user: root
-#      become_method: su
       ansible.builtin.yum:
         name: 
         - git
@@ -102,6 +100,8 @@
         force: true
       notify: Restart nginx service
     - name: Create lighthouse configuration file
+      become: true
+      become_user: root
       template:
         src: templates/config/lighthouse.conf.j2
         dest: /etc/nginx/conf.d/default.conf

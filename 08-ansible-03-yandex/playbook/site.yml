@@ -91,6 +91,7 @@
         repo: "{{ lighthouse_vcs }}"
         version: master
         dest: "/opt/lighthouse"
+        force: true
       notify: Restart nginx service
     - name: Create lighthouse configuration file
       template:

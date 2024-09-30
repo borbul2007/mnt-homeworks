@@ -2,16 +2,14 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: localhost
+      ansible_agent: borbul@158.160.10.129
 
 vector:
   hosts:
-    vector-01:
-      ansible_host: localhost
+    vector-01: borbul@89.169.166.183
+      ansible_agent: 
 
 lighthouse:
   hosts:
-    nginx-01:
-      ansible_host: localhost
     lighthouse-01:
-      ansible_host: localhost
+      ansible_agent: borbul@158.160.12.171

@@ -68,6 +68,20 @@
         dest=/etc/vector/vector.yaml
       notify: Restart vector service
 
+#- name: Install Nginx
+#  hosts: lighthouse
+#  tags: 
+#    - lighthouse
+#    - nginx
+#  handlers:
+#    - name: Restart nginx service
+#      become: true
+#      ansible.builtin.service:
+#        name: nginx
+#        state: restarted
+
+#  tasks:
+
 - name: Install Lighthouse
   hosts: lighthouse
   tags: lighthouse
@@ -81,8 +95,13 @@
     - name: Install dependencies
       become: true
       ansible.builtin.yum:
-        name: git
+        name: 
+        - git
+        - nginx
         state: present
+#      notify: Restart nginx service
+
+
   tasks:
     - name: Install nginx packages
       become: true

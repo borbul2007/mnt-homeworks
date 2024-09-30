@@ -95,7 +95,7 @@
       ansible.builtin.service:
         name: nginx
         state: restarted
-  pre-tasks:
+  pre_tasks:
     - name: Install dependencies
       become: true
       ansible.builtin.yum:

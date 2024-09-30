@@ -70,7 +70,9 @@
 
 - name: Install Nginx
   hosts: lighthouse
-  tags: lighthouse
+  tags: 
+    - lighthouse
+    - nginx
   handlers:
     - name: Restart nginx service
       become: true
@@ -109,7 +111,7 @@
         dest: "/usr/share/hginx/html"
       notify: Restart nginx service
   dependencies:
-- { role: "Install Nginx" }
+- { tags: nginx }
 
 #    - name: Create lighthouse configuration file
 #      template:

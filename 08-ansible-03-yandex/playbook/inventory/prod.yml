@@ -8,3 +8,10 @@ vector:
   hosts:
     vector-01:
       ansible_host: localhost
+
+lighthouse:
+  hosts:
+    nginx-01:
+      ansible_host: localhost
+    lighthouse-01:
+      ansible_host: localhost

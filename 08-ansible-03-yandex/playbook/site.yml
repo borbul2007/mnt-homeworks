@@ -78,3 +78,56 @@
 
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
+
+
+- name: Install Nginx
+  hosts: lighthouse
+  tags: lighthouse
+  handlers:
+    - name: Restart nginx service
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+
+  tasks:
+    - name: Install nginx packages
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      notify: Restart nginx service
+
+
+- name: Install Lighthouse
+  hosts: vector
+  tags: vector
+  handlers:
+    - name: Restart vector service
+      become: true
+      ansible.builtin.service:
+        name: vector
+  
+  tasks:
+    - name: Get lighthouse distrib
+      ansible.builtin.get_url:
+        url: "https://yum.vector.dev/stable/vector-0/x86_64/vector-{{ vector_rpm_version }}.x86_64.rpm"
+        dest: "./vector-{{ vector_rpm_version }}.x86_64.rpm"
+        mode: "0755"
+      with_items: "{{ lighthouse_version }}"
+
+    - name: Install lighthouse packages
+      ansible.builtin.git:
+        repo:
+        version: {{ lighthouse_version }}
+        dest: true
+      notify: Restart nginx service
+
+    - name: Create lighthouse configuration file
+      template:
+        src=templates/config/lighthouse.conf.j2
+        dest=/etc/ngix/conf.d/default.conf
+        mode: "0644"   
+      notify: Restart nginx service
+
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers

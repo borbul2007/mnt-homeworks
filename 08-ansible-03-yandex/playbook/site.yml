@@ -58,12 +58,16 @@
         mode: "0755"
       with_items: "{{ vector_version }}"
     - name: Install vector packages
+      become: true
+      become_user: root
       ansible.builtin.yum:
         name:
           - vector-{{ vector_rpm_version }}.x86_64.rpm
         disable_gpg_check: true
       notify: Restart vector service
     - name: Replace vector configuration file
+      become: true
+      become_user: root
       template:
         src=templates/config/vector.toml.j2
         dest=/etc/vector/vector.yaml

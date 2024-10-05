@@ -1,0 +1,19 @@
+---
+
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: 158.160.10.129
+      ansible_user: borbul
+
+vector:
+  hosts:
+    vector-01:
+      ansible_host: 89.169.166.183
+      ansible_user: borbul
+
+lighthouse:
+  hosts:
+    lighthouse-01:
+      ansible_host: 158.160.12.171
+      ansible_user: borbul

@@ -3,17 +3,17 @@
 - name: Install Cclickhouse
   hosts: clickhouse
   tags: clickhouse
-  role:
+  roles:
     - clickhouse
 
 - name: Install Vector
   hosts: vector
   tags: vector
-  role:
+  roles:
     - vector
 
 - name: Install Lighthouse
   hosts: lighthouse
   tags: lighthouse
-  role:
+  roles:
     - lighthouse

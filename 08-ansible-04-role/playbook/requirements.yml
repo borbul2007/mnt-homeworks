@@ -14,4 +14,4 @@
 - name: lighthouse
   src: git@github.com:borbul2007/ligthhouse-role.git
   scm: git
-  version: "0.0.1"
+  version: "0.0.2"

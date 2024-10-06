@@ -3,15 +3,6 @@
 - name: Install Cclickhouse
   hosts: clickhouse
   tags: clickhouse
-  pre_tasks:
-    - name: Install dependencies
-      become: true
-      become_user: root
-      ansible.builtin.yum:
-        name: 
-        - git
-        - nginx
-        state: present
   roles:
     - clickhouse
 
@@ -24,5 +15,14 @@
 - name: Install Lighthouse
   hosts: lighthouse
   tags: lighthouse
+  pre_tasks:
+    - name: Install dependencies
+      become: true
+      become_user: root
+      ansible.builtin.yum:
+        name: 
+        - git
+        - nginx
+        state: present
   roles:
     - lighthouse

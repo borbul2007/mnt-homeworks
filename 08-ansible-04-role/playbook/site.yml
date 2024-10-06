@@ -3,7 +3,6 @@
 - name: Install Cclickhouse
   hosts: clickhouse
   tags: clickhouse
-<<<<<<< HEAD
   pre_tasks:
     - name: Install dependencies
       become: true
@@ -13,8 +12,6 @@
         - git
         - nginx
         state: present
-  role:
-=======
   roles:
     - clickhouse
 

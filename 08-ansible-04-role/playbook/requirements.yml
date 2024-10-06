@@ -12,6 +12,6 @@
   version: "0.0.1"
 
 - name: lighthouse
-  src: git@github.com:borbul2007/ligthhouse-role.git
+  src: git@github.com:borbul2007/lighthouse-role.git
   scm: git
   version: "0.0.2"

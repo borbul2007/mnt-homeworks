@@ -22,6 +22,16 @@
 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 5. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
+![mnt-homeworks-05-task1-1](https://github.com/user-attachments/assets/c10b1730-bdd6-48f8-b9c2-babfe62e0631)
+
+![mnt-homeworks-05-task1-2](https://github.com/user-attachments/assets/5d0aeef1-9863-4b11-92d3-025a9c84f138)
+
+![mnt-homeworks-05-task1-3](https://github.com/user-attachments/assets/f9f4ac61-2cd5-4820-b4f6-853eceb0577a)
+
+![mnt-homeworks-05-task1-4](https://github.com/user-attachments/assets/0ae457b7-a2d3-495f-afb7-94e59cb76c99)
+
+![mnt-homeworks-05-task1-5](https://github.com/user-attachments/assets/60786459-4495-4c52-915c-e2ab57988f73)
+
 ### Tox
 
 1. Добавьте в директорию с vector-role файлы из [директории](./example).
@@ -31,6 +41,16 @@
 6. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+
+![mnt-homeworks-05-task2-1](https://github.com/user-attachments/assets/974357d0-6ec2-4c6b-a665-044b27fa242f)
+
+![mnt-homeworks-05-task2-2](https://github.com/user-attachments/assets/0532d18b-e89c-4169-a46e-0216c36c8d3b)
+
+![mnt-homeworks-05-task2-3](https://github.com/user-attachments/assets/06fecce5-da29-46fa-8804-f34df8a301ab)
+
+![mnt-homeworks-05-task2-4](https://github.com/user-attachments/assets/e9ed0e4d-c464-4ff3-8a72-91fa2dbd8b72)
+
+![mnt-homeworks-05-task2-5](https://github.com/user-attachments/assets/13056ae1-e823-4282-b0c3-ee83e342e384)
 
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. В качестве решения пришлите ссылку на  ваш репозиторий и скриншоты этапов выполнения задания. 
 

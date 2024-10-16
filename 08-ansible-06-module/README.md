@@ -162,9 +162,13 @@ if __name__ == '__main__':
 
 **Шаг 4.** Проверьте module на исполняемость локально.
 
+![mnt-homeworks-06-task4](https://github.com/user-attachments/assets/e6a37a44-9c71-4d4e-8cdd-0115cd3f5d37)
+
 **Шаг 5.** Напишите single task playbook и используйте module в нём.
 
 **Шаг 6.** Проверьте через playbook на идемпотентность.
+
+![mnt-homeworks-06-task6](https://github.com/user-attachments/assets/05b98156-0957-485d-b611-fddd6aeb47bc)
 
 **Шаг 7.** Выйдите из виртуального окружения.
 
@@ -185,6 +189,8 @@ if __name__ == '__main__':
 **Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
 
 **Шаг 16.** Запустите playbook, убедитесь, что он работает.
+
+![mnt-homeworks-06-task16](https://github.com/user-attachments/assets/cb52bd5d-67e3-471a-810c-b29126ec9047)
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
 

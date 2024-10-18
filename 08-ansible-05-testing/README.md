@@ -41,12 +41,14 @@
 6. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
 8. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 9. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
-![mnt-homeworks-05-task2-1](https://github.com/user-attachments/assets/99533999-e872-4392-94a3-15aedd8311a1)
-![mnt-homeworks-05-task2-2](https://github.com/user-attachments/assets/f0105af3-359c-4be8-b4e1-097c50c8eb5a)
-![mnt-homeworks-05-task2-3](https://github.com/user-attachments/assets/417eeea3-e671-4fa1-abad-a55b83319877)
-![mnt-homeworks-05-task2-4](https://github.com/user-attachments/assets/1987b046-5a92-4518-b965-d9b868349304)
-![mnt-homeworks-05-task2-5](https://github.com/user-attachments/assets/a0a204a7-8b84-4de2-afbc-3ab0c8b940d6)
-![mnt-homeworks-05-task2-6](https://github.com/user-attachments/assets/0fd27d9e-52c2-4761-ae3a-f8ed3076e70a)
+
+![mnt-homeworks-05-task2-1](https://github.com/user-attachments/assets/c0aaa708-dd05-4413-b999-ccd03e785d5d)
+![mnt-homeworks-05-task2-2](https://github.com/user-attachments/assets/0503a06a-098c-4adf-af84-27fb9066867e)
+![mnt-homeworks-05-task2-3](https://github.com/user-attachments/assets/ccf0f777-971c-42df-bf09-a6d09ebec044)
+![mnt-homeworks-05-task2-4](https://github.com/user-attachments/assets/913d8887-70b5-430f-86ba-077dae271ea2)
+![mnt-homeworks-05-task2-5](https://github.com/user-attachments/assets/f0c659df-4eac-481a-9c23-fd23b7959fa7)
+![mnt-homeworks-05-task2-6](https://github.com/user-attachments/assets/9163e017-f861-4eb6-944d-5082571335ec)
+![mnt-homeworks-05-task2-7](https://github.com/user-attachments/assets/586f5fdc-7820-415b-ae4b-a1f63f0a6dd4)
 
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. В качестве решения пришлите ссылку на  ваш репозиторий и скриншоты этапов выполнения задания. 
 

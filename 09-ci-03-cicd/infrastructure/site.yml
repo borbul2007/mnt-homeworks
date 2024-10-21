@@ -113,11 +113,11 @@
         name: "{{ sonarqube_db_user }}"
         group: "{{ sonarqube_db_user }}"
 
-    - name: "Set up ssh key to access for managed node"
-      authorized_key:
-        user: "{{ sonarqube_db_user }}"
-        state: present
-        key: "{{ lookup('file', 'id_rsa.pub') }}"
+#    - name: "Set up ssh key to access for managed node"
+#      authorized_key:
+#        user: "{{ sonarqube_db_user }}"
+#        state: present
+#        key: "{{ lookup('file', 'id_rsa.pub') }}"
 
     - name: "Allow group to have passwordless sudo"
       lineinfile:

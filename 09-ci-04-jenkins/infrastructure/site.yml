@@ -12,12 +12,12 @@
       user:
         name: "{{ user_name }}"
         generate_ssh_key: true
-      register: ssh_key_info
-    - name: Install JDK
-      become: true
-      package:
-        name: "{{ java_packages }}"
-        state: present
+#      register: ssh_key_info
+#    - name: Install JDK
+#      become: true
+#      package:
+#        name: "{{ java_packages }}"
+#        state: present
 
 - name: Get Jenkins master installed
   hosts: jenkins_masters

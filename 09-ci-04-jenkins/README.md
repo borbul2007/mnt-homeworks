@@ -20,12 +20,15 @@
 ![ter-homeworks-02-task2-2](https://github.com/user-attachments/assets/b283d579-f7a9-4be8-b00e-a6ea757eac32)
 
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
+
+    [Jenkinsfile](https://github.com/borbul2007/jenkins/tree/main)
+
 4. Создать Multibranch Pipeline на запуск `Jenkinsfile` из репозитория.
-5. Создать Scripted Pipeline, наполнить его скриптом из [pipeline](./pipeline).
-6. Внести необходимые изменения, чтобы Pipeline запускал `ansible-playbook` без флагов `--check --diff`, если не установлен параметр при запуске джобы (prod_run = True). По умолчанию параметр имеет значение False и запускает прогон с флагами `--check --diff`.
-7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
-8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
-9. Сопроводите процесс настройки скриншотами для каждого пункта задания!!
+6. Создать Scripted Pipeline, наполнить его скриптом из [pipeline](./pipeline).
+7. Внести необходимые изменения, чтобы Pipeline запускал `ansible-playbook` без флагов `--check --diff`, если не установлен параметр при запуске джобы (prod_run = True). По умолчанию параметр имеет значение False и запускает прогон с флагами `--check --diff`.
+8. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
+9. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
+10. Сопроводите процесс настройки скриншотами для каждого пункта задания!!
 
 ## Необязательная часть
 

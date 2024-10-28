@@ -36,7 +36,7 @@
       become: true
       become_user: "borbul"
       get_url:
-        dest: "/home/nexus/pkg/nexus-3.14.0-04.tar.gz"
+        dest: "/home/nexus/pkg/nexus-3.68.1-02-java11-unix.tar.gz"
         url: "https://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz"
 
     - name: Unpack Nexus
@@ -44,16 +44,16 @@
       become_user: "nexus"
       unarchive:
         copy: no
-        creates: "/home/nexus/pkg/nexus-3.14.0-04"
+        creates: "/home/nexus/pkg/nexus-3.68.1-02"
         dest: "/home/nexus/pkg"
-        src: "/home/nexus/pkg/nexus-3.14.0-04.tar.gz"
+        src: "/home/nexus/pkg/nexus-3.68.1-02-java11-unix.tar.gz"
 
     - name: Link to Nexus Directory
       become: true
       become_user: "nexus"
       file:
         dest: "/home/nexus/sonatype-work/nexus3"
-        src: "/home/nexus/pkg/nexus-3.14.0-04"
+        src: "/home/nexus/pkg/nexus-3.68.1-02"
         state: link
 
     - name: Add NEXUS_HOME for Nexus user

@@ -36,7 +36,7 @@
       become: true
       become_user: "borbul"
       get_url:
-        url: "http://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz
+        url: "http://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz"
         dest: "/home/nexus/pkg/nexus-3.68.1-02-java11-unix.tar.gz"
 
 

@@ -37,8 +37,7 @@
       become_user: "borbul"
       get_url:
         dest: "/home/nexus/pkg/nexus-3.68.1-02-java11-unix.tar.gz"
-        url: "https://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz"
-        validate_certs: false
+        url: "http://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz"
 
     - name: Unpack Nexus
       become: true

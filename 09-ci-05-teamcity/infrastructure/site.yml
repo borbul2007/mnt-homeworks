@@ -5,12 +5,12 @@
     - name: Create Nexus group
       become: true
       group:
-        name: "nexus"
+        name: "borbul"
         state: present
     - name: Create Nexus user
       become: true
       user:
-        name: "nexus"
+        name: "borbul"
 
 #    - name: Install JDK
 #      become: true
@@ -21,8 +21,8 @@
     - name: Create Nexus directories
       become: true
       file:
-        group: "nexus"
-        owner: "nexus"
+        group: "borbul"
+        owner: "borbul"
         path: "{{ item }}"
         state: directory
       with_items:
@@ -33,16 +33,16 @@
         - "/home/nexus/tmp"
 
     - name: Download Nexus
-#      become: true
-#      become_user: "borbul"
+      become: true
+      become_user: "borbul"
       get_url:
-        url: "http://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz"
+        url: "http://download.sonatype.com/nexus/3/nexus-3.68.1-02-java11-unix.tar.gz
         dest: "/home/nexus/pkg/nexus-3.68.1-02-java11-unix.tar.gz"
 
 
     - name: Unpack Nexus
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       unarchive:
         copy: no
         creates: "/home/nexus/pkg/nexus-3.68.1-02"
@@ -51,7 +51,7 @@
 
     - name: Link to Nexus Directory
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       file:
         dest: "/home/nexus/sonatype-work/nexus3"
         src: "/home/nexus/pkg/nexus-3.68.1-02"
@@ -59,7 +59,7 @@
 
     - name: Add NEXUS_HOME for Nexus user
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       lineinfile:
         create: yes
         dest: "/home/nexus/.bashrc"
@@ -68,7 +68,7 @@
 
     - name: Add run_as_user to Nexus.rc
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       lineinfile:
         create: yes
         dest: "/home/nexus/sonatype-work/nexus3/bin/nexus.rc"
@@ -79,7 +79,7 @@
     - name: Raise nofile limit for Nexus user
       become: true
       pam_limits:
-        domain: "nexus"
+        domain: "borbul"
         limit_type: "-"
         limit_item: nofile
         value: "{{ nexus_ulimit }}"
@@ -102,7 +102,7 @@
 
     - name: Create Nexus vmoptions
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       template:
         dest: "/home/nexus/sonatype-work/nexus3/bin/nexus.vmoptions"
         src: nexus.vmoptions.j2
@@ -110,7 +110,7 @@
 
     - name: Create Nexus properties
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       template:
         dest: "{{ nexus_directory_data }}/etc/nexus.properties"
         src: nexus.properties.j2
@@ -118,7 +118,7 @@
 
     - name: Lower Nexus disk space threshold
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       lineinfile:
         backrefs: yes
         dest: "/home/nexus/sonatype-work/nexus3/etc/karaf/system.properties"

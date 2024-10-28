@@ -5,7 +5,8 @@
     - name: Create Nexus group
       become: true
       group:
-        name: "{{ nexus_user_group }}"
+        name: "nexus"
+#        name: "{{ nexus_user_group }}" 
         state: present
     - name: Create Nexus user
       become: true

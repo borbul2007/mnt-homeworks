@@ -34,7 +34,7 @@
 
     - name: Download Nexus
       become: true
-      become_user: "nexus"
+      become_user: "borbul"
       get_url:
         dest: "/home/nexus/pkg/nexus-3.14.0-04.tar.gz"
         url: "https://download.sonatype.com/nexus/3/nexus-3.14.0-04-unix.tar.gz"

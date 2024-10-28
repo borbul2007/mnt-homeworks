@@ -13,11 +13,11 @@
       user:
         name: "nexus"
 #        name: "{{ nexus_user_name }}"
-    - name: Install JDK
-      become: true
-      package:
-        name: [java-1.8.0-openjdk, java-1.8.0-openjdk-devel]
-        state: present
+#    - name: Install JDK
+#      become: true
+#      package:
+#        name: [java-1.8.0-openjdk, java-1.8.0-openjdk-devel]
+#        state: present
   tasks:
     - name: Create Nexus directories
       become: true

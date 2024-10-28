@@ -27,11 +27,11 @@
         path: "{{ item }}"
         state: directory
       with_items:
-        - "{{ nexus_directory_log }}"
-        - "{{ nexus_directory_data }}"
-        - "{{ nexus_directory_data }}/etc"
-        - "{{ nexus_directory_package }}"
-        - "{{ nexus_directory_tmp }}"
+        - "/home/nexus/log"
+        - "/home/nexus/sonatype-work/nexus3"
+        - "/home/nexus/sonatype-work/nexus3/etc"
+        - "/home/nexus/pkg"
+        - "/home/nexus/tmp"
 
     - name: Download Nexus
       become: true

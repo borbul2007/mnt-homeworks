@@ -11,7 +11,8 @@
     - name: Create Nexus user
       become: true
       user:
-        name: "{{ nexus_user_name }}"
+        name: "nexus"
+#        name: "{{ nexus_user_name }}"
     - name: Install JDK
       become: true
       package:

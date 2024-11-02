@@ -37,6 +37,8 @@
 2. Текст с `{ "message": "Already started" }` на `{ "message": "Running"}`.
 3. Issue поставить label: feature.
 
+![mnt-homeworks-09-06-task2-1](https://github.com/user-attachments/assets/83155e22-b2ad-4315-a0eb-4a7198f6ee1a)
+
 ### Developer
 
 Пришёл новый Issue на доработку, вам нужно:
@@ -45,6 +47,7 @@
 2. Внести изменения по тексту из задания.
 3. Подготовить Merge Request, влить необходимые изменения в `master`, проверить, что сборка прошла успешно.
 
+![mnt-homeworks-09-06-task3-1](https://github.com/user-attachments/assets/f9657b38-132f-4c04-81dd-2b2e88f43175)
 
 ### Tester
 

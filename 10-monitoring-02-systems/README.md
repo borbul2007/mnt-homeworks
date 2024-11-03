@@ -23,9 +23,9 @@
 #
 6. Какие из ниже перечисленных систем относятся к push модели, а какие к pull? А может есть гибридные?
 
-    - Prometheus 
-    - TICK
-    - Zabbix
+    - Prometheus - pull and push (Push Gateway) 
+    - TICK - push 
+    - Zabbix - push and pull
     - VictoriaMetrics
     - Nagios
 #

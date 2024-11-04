@@ -25,10 +25,14 @@
 3. Вашей DevOps команде в этом году не выделили финансирование на построение системы сбора логов. Разработчики в свою 
 очередь хотят видеть все ошибки, которые выдают их приложения. Какое решение вы можете предпринять в этой ситуации, 
 чтобы разработчики получали ошибки приложения?
+  * Sentry
+
 #
 4. Вы, как опытный SRE, сделали мониторинг, куда вывели отображения выполнения SLA=99% по http кодам ответов. 
 Вычисляете этот параметр по следующей формуле: summ_2xx_requests/summ_all_requests. Данный параметр не поднимается выше 
 70%, но при этом в вашей системе нет кодов ответа 5xx и 4xx. Где у вас ошибка?
+  * Видимо есть 3xx правильно считать так: (summ_2xx_requests + summ_3xx_requests)/(summ_all_requests)
+
 #
 5. Опишите основные плюсы и минусы pull и push систем мониторинга.
 #
@@ -37,8 +41,8 @@
     - Prometheus - pull and push (Push Gateway) 
     - TICK - push 
     - Zabbix - push and pull
-    - VictoriaMetrics
-    - Nagios
+    - VictoriaMetrics - push and pull
+    - Nagios - pull
 #
 7. Склонируйте себе [репозиторий](https://github.com/influxdata/sandbox/tree/master) и запустите TICK-стэк, 
 используя технологии docker и docker-compose.
@@ -56,6 +60,9 @@ P.S.: если при запуске некоторые контейнеры б�
     - Вверху вы можете увидеть запрос, аналогичный SQL-синтаксису. Поэкспериментируйте с запросом, попробуйте изменить группировку и интервал наблюдений.
 
 Для выполнения задания приведите скриншот с отображением метрик утилизации cpu из веб-интерфейса.
+
+![10-monitoring-02-systems-task-1](https://github.com/user-attachments/assets/7c10c596-8395-401a-b21b-6f9d5b8d6866)
+
 #
 9. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
 Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
@@ -83,6 +90,8 @@ P.S.: если при запуске некоторые контейнеры б�
 
 После настройке перезапустите telegraf, обновите веб интерфейс и приведите скриншотом список `measurments` в 
 веб-интерфейсе базы telegraf.autogen . Там должны появиться метрики, связанные с docker.
+
+![10-monitoring-02-systems-task-2](https://github.com/user-attachments/assets/e604e2fc-e33f-4329-a948-1920d9e75023)
 
 Факультативно можете изучить какие метрики собирает telegraf после выполнения данного задания.
 
